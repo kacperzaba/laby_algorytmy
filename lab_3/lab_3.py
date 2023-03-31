@@ -1,6 +1,8 @@
 # Napisz program, który mnoży dwie tablice n -wymiarowe przez siebie.
 # Jakie muszą być spełnione założenia przy mnożeniu dwóch tablic dwuwymiarowych?
 # Jaka jest złożoność obliczeniowa takiego programu?
+import random
+
 
 def create_two_dim_array(m, n):
     lista = [[random.randint(-20, 50) for i in range(n)] for j in range(m)]
@@ -18,6 +20,10 @@ def mulMatrix(m1, m2):
         m3 = []
         for i in range(wm1):
             pom = []
-            for j in m1:
-                for c in m2:
-                    w+=j*c
+            w=0
+            for j in range(wm1):
+                for c in range(km2):
+                    w+=m1[j][c]*m2[c][j]
+                pom.append(w)
+            m3.append(pom)
+        return m3
